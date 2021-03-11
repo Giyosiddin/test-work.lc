@@ -48,3 +48,5 @@ Route::post('/order-confirm', [OrderController::class, 'orderConfirm']);
 Route::post('/delete-order', [OrderController::class, 'deleteOrder']);
 
 Route::post('/remove-product-order', [OrderController::class, 'removeFromCart']);
+
+Route::post('/filter-products', [ProductController::class, 'productFilter']);

@@ -1,0 +1,468 @@
+{
+	"info": {
+		"_postman_id": "163129b3-8e03-4659-aada-25401ffea688",
+		"name": "test-work",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@email.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "12312123322",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-work.lc/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|YxNaK4ajSchNZ2TCKASNdmMJLJC2oSP5k2CIoLy1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://test-work.lc/api/me",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-work.lc/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|YxNaK4ajSchNZ2TCKASNdmMJLJC2oSP5k2CIoLy1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://test-work.lc/api/auth/logout",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add to cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "15",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "17",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-work.lc/api/add-to-cart",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"add-to-cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://test-work.lc/api/categories",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get category by slug",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://test-work.lc/api/category/seiko",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"category",
+						"seiko"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product with category slug and product slug",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://test-work.lc/api/seiko/citizen-jp1010-00e",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"seiko",
+						"citizen-jp1010-00e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://test-work.lc/api/orders/1",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirmed order",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "order_id",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "fio",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "12321321",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "dasdasd",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-work.lc/api/order-confirm",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"order-confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-work.lc/api/delete-order",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"delete-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove or change count product from cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "15",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "17",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-work.lc/api/remove-product-order",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"remove-product-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category[]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "category[]",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "details[color][]",
+							"value": "black",
+							"type": "text"
+						},
+						{
+							"key": "details[color][]",
+							"value": "white",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "details[width][]",
+							"value": "25 СМ",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-work.lc/api/filter-products",
+					"protocol": "http",
+					"host": [
+						"test-work",
+						"lc"
+					],
+					"path": [
+						"api",
+						"filter-products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

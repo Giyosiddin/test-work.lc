@@ -14,7 +14,6 @@ use App\Models\Category;
 |
 */
 
-Route::get('/category', function () {
-   $category = Category::with('parent','children','products')->find(8);
-   dd($category);
+Route::get('/', function () {
+   return view('welcome');
 });
