@@ -50,7 +50,7 @@ class OrderController extends Controller
 
     }
 
-    public function removeCart()
+    public function removeFromCart()
     {
     	$product_id = request('product_id');
     	$user_id = request('user_id');
@@ -62,22 +62,20 @@ class OrderController extends Controller
     	if(isset($user_order)){
     		if($user_order->products->contains('id', $product_id)){
     			$count = $user_order->products()->where('product_id', $product_id)->first()->pivot->count;
-    			$user_order->products()->updateExistingPivot($product_id, ['count' => $count+1]);
-	    		return response()
-	    			->json(['message' => 'Product added to cart successfully!', 'count' => $count+1]);
+    			if($count > 1){
+
+	    			$user_order->products()->updateExistingPivot($product_id, ['count' => $count-1]);
+		    		return response()->json(['message' => 'Product removed from cart successfully!', 'count' => $count-1]);
+    			}else{
+    				$user_order->products()->detach($product_id);
+	    			return response()->json(['message' => 'Product removed from cart successfully!']);
+    			}
 		    }else{
-		    	$add_new_product = $user_order->products()->attach($product_id, [ 'product_name' => $product->title, 'product_price' => $product->price]);
-		    	// dd('not id');
-    			return response()->json('Product added to cart successfully!', 200);
+    			return response()->json('Product not found in your Order!', 200);
 		    }
     	}else{
-    		$order = Order::create([
-    			'user_id' => $user_id
-    		]);
 
-			$order->products()->attach($product_id, [ 'product_name' => $product->title, 'product_price' => $product->price]);
-
-    		return response()->json('Product added to cart successfully!', 200);
+    		return response()->json('You were not added order!', 200);
     	}
     	return response()->json('Product added to cart successfully!', 200);
     }
