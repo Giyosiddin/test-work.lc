@@ -12,4 +12,9 @@ class ProductController extends Controller
         $product = Product::where('slug',$slug)->with('details')->get()->toArray();
         return response()->json($product);
     }
+
+    public function productFilter(Request $request)
+    {
+
+    }
 }
